@@ -53,4 +53,20 @@ public class Library {
             book.setAvailable(true); // Mark the book as available again
         }
     }
+
+    /**
+     * Retrieves a list of all available books in the library.
+     *
+     * @return A list of books that are available for borrowing
+     */
+    public List<Book> getAvailableBooks() {
+        List<Book> availableBooks = new ArrayList<>();
+        // Loop through all the books and collect the ones that are available
+        for (Book book : books.values()) {
+            if (book.isAvailable()) {
+                availableBooks.add(book);
+            }
+        }
+        return availableBooks;
+    }
 }
