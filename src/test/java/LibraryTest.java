@@ -71,4 +71,16 @@ class LibraryTest {
         // Assert that the book is available again after being returned
         assertEquals(1, library.getAvailableBooks().size());
     }
+
+     /**
+     * Test that viewing available books returns the correct number of books.
+     */
+    @Test
+    void testViewAvailableBooks() {
+        // Add two books to the library
+        library.addBook("978-0132350884", "Clean Code", "Robert C. Martin", 2008);
+        library.addBook("978-0137081073", "The Clean Coder", "Robert C. Martin", 2011);
+        // Assert that both books are available
+        assertEquals(2, library.getAvailableBooks().size());
+    }
 }
