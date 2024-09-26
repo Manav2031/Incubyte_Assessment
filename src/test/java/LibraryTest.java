@@ -59,4 +59,16 @@ class LibraryTest {
         // Verify the exception message
         assertEquals("Book not available", exception.getMessage());
     }
+
+    /**
+     * Test that returning a borrowed book makes it available again.
+     */
+    @Test
+    void testReturnBook() {
+        library.addBook("978-0132350884", "Clean Code", "Robert C. Martin", 2008);
+        library.borrowBook("978-0132350884");
+        library.returnBook("978-0132350884");
+        // Assert that the book is available again after being returned
+        assertEquals(1, library.getAvailableBooks().size());
+    }
 }
