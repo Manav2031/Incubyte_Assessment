@@ -24,4 +24,20 @@ public class Library {
             books.put(isbn, new Book(isbn, title, author, year, true));
         }
     }
+
+    /**
+     * Allows a user to borrow a book from the library if it's available.
+     *
+     * @param isbn The ISBN of the book to be borrowed
+     * @throws IllegalStateException if the book is not available or doesn't exist
+     */
+    public void borrowBook(String isbn) {
+        Book book = books.get(isbn);
+        // Check if the book exists and is available for borrowing
+        if (book != null && book.isAvailable()) {
+            book.setAvailable(false); // Mark the book as borrowed
+        } else {
+            throw new IllegalStateException("Book not available");
+        }
+    }
 }
