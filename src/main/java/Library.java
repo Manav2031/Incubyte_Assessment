@@ -40,4 +40,17 @@ public class Library {
             throw new IllegalStateException("Book not available");
         }
     }
+
+     /**
+     * Allows a user to return a previously borrowed book.
+     *
+     * @param isbn The ISBN of the book to be returned
+     */
+    public void returnBook(String isbn) {
+        Book book = books.get(isbn);
+        // Check if the book exists and is currently borrowed
+        if (book != null && !book.isAvailable()) {
+            book.setAvailable(true); // Mark the book as available again
+        }
+    }
 }
